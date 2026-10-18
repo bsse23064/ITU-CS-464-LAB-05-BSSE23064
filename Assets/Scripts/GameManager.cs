@@ -7,13 +7,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] int targetScore = 10;
     [SerializeField] TMP_Text scoreText;
     [SerializeField] GameObject winPanel;
+    [SerializeField] Spawner spawner;
     int score;
-    void Awake() => Instance = this;
+    int redCoinSpawnNumber;
+    bool redSpawned;
+    void Awake() {
+        Instance = this;
+        redCoinSpawnNumber = Random.Range(1,10);
+        Debug.Log(redCoinSpawnNumber);
+    } 
     void Start() => UpdateUI();
     public void AddScore(int amount)
     {
         score += amount;
         UpdateUI();
+        if (!redSpawned && score >= redCoinSpawnNumber)
+        {
+            redSpawned = true;
+            spawner.SpawnRedCoin();
+        }
         if (score >= targetScore) Win();
     }
     void UpdateUI() => scoreText.text = $"Score: {score} / {targetScore}";

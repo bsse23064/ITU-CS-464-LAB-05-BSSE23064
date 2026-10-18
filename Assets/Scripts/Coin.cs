@@ -1,7 +1,9 @@
 using UnityEngine;
 
+public enum CoinType {Normal,Red,Blue};
 public class Coin : MonoBehaviour
 {
+    [SerializeField] CoinType type = CoinType.Normal;
     [SerializeField] int value = 1;
     [SerializeField] float spinSpeed = 90f;
 
