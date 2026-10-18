@@ -12,10 +12,28 @@ public class Coin : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log($"Coin touched by {other.name}");
-        if (other.CompareTag("Player"))
+       if (!other.CompareTag("Player")) return;
+
+        switch (type)
         {
-            GameManager.Instance.AddScore(value);
-            Destroy(gameObject);
+            case CoinType.Normal:
+                GameManager.Instance.AddScore(value);
+                break;
+            case CoinType.Red:
+                {
+                    Debug.Log("Calling GameManager.OnRedCoinCollected");
+                    GameManager.Instance.OnRedCoinCollected();
+                    break;
+                }
+            
+            case CoinType.Blue:
+                {
+                    GameManager.Instance.AddBonus(value);
+                    break;
+                }
+
         }
+
+        Destroy(gameObject);
     }
 }

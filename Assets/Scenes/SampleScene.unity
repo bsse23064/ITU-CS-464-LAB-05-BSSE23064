@@ -898,11 +898,13 @@ MonoBehaviour:
   coinPrefab: {fileID: 8578887418569821318, guid: 645fc83af73430f4ca19b85c87592eaf, type: 3}
   redCoinPrefab: {fileID: 394118234069795978, guid: 7d0637785923bce47a20b135396c98f5, type: 3}
   blueCoinPrefab: {fileID: 9185743816763512992, guid: 03ad0b3dd6c6ce34d8ce230477cfb4d3, type: 3}
-  redSpawnNumber: 0
   player: {fileID: 1441818483}
   interval: 1.5
   maxCoins: 5
   area: {x: 7, y: 9}
+  spawnHeight: 0.75
+  blueCoinCount: 50
+  blueRadius: 5
 --- !u!1 &554607936
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,8 +935,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   targetScore: 10
+  bonusTargetScore: 50
   scoreText: {fileID: 1936931127}
+  bonusScoreText: {fileID: 1384754282}
   winPanel: {fileID: 466822323}
+  spawner: {fileID: 476165703}
 --- !u!4 &554607938
 Transform:
   m_ObjectHideFlags: 0
@@ -1431,7 +1436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1384754281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1448,7 +1453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -50}
+  m_AnchoredPosition: {x: 20, y: -80}
   m_SizeDelta: {x: 214.7758, y: 50.41101}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1384754282
@@ -1741,7 +1746,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 20, y: -20}
-  m_SizeDelta: {x: 214.7758, y: 50.41101}
+  m_SizeDelta: {x: 243.215, y: 50.411}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1936931127
 MonoBehaviour:
